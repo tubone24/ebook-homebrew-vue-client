@@ -36,3 +36,8 @@ Push the button below.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+## DEMOS
+
+Using Vue.js, Call ebook-homebrew's REST API DEMO App, deploy to Heroku.
+
+[https://ebook-homebrew-vue-client.herokuapp.com/](https://ebook-homebrew-vue-client.herokuapp.com/)
