@@ -11,8 +11,13 @@ module.exports = {
     browser
       .url(devServer)
       .waitForElementVisible('#app', 5000)
-      .assert.elementPresent('.hello')
-      .assert.containsText('h1', 'Welcome to Your Vue.js App')
+      .assert.elementPresent('#FileUpload')
+      .assert.elementPresent('#format-select')
+      .assert.elementPresent('#selected-format')
+      .assert.containsText('#selected-format', 'Image Format:')
+      .setValue('#format-select', 'image/png')
+      .assert.containsText('#selected-format', 'Image Format: image/png')
+      .assert.containsText('h2', 'Select images')
       .assert.elementCount('img', 1)
       .end()
   }

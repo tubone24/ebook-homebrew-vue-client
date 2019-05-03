@@ -1,19 +1,19 @@
 <template>
   <div id="FileUpload">
     <div>
-      <select v-model="selected" @change="onFileFormatChange">
+      <select id="format-select" v-model="selected" @change="onFileFormatChange">
         <option disabled value="">Please select one</option>
-        <option>image/png</option>
-        <option>image/jpeg</option>
-        <option>image/gif</option>
+        <option value="image/png">image/png</option>
+        <option value="image/jpeg">image/jpeg</option>
+        <option value="image/gif">image/gif</option>
       </select>
-      <span>Image Format: {{ selected }}</span>
+      <span id="selected-format">Image Format: {{ selected }}</span>
     </div>
-    <div v-if="!image">
+    <div v-if="!image" id="select-not-yet-image">
       <h2>Select images</h2>
       <input type="file" @change="onFileChange" multiple="multiple" accept="image/*">
     </div>
-    <div v-else>
+    <div v-else id="selected-images">
       <img :src="image"/>
       <button class="btn btn-danger" @click="removeImage">Remove images</button>
       <div v-if="selected && images">
