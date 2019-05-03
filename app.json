@@ -1,0 +1,13 @@
+{
+  "name": "ebook-homebrew-vue-client",
+  "description": "Make pdf file which you use e-books by take in some image files such as jpeg, png and gif.",
+  "keywords": [
+    "ebook",
+    "pdf",
+    "vue"
+  ],
+  "website": "https://tubone-project24.xyz",
+  "repository": "https://github.com/tubone24/ebook-homebrew-vue-client",
+  "logo": "https://raw.githubusercontent.com/tubone24/ebook_homebrew/master/docs/_images/bookicon.png",
+  "success_url": "/"
+}

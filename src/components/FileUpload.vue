@@ -40,94 +40,92 @@
 </template>
 
 <script>
-  /* eslint-disable */
-  import axios from 'axios'
-  import mixins from '../mixins/const'
+import axios from 'axios'
+import mixins from '../mixins/const'
 
-  const backendURL = mixins.data().backendURL;
+const backendURL = mixins.data().backendURL
 
-  export default {
-    name: 'FileUpload',
-    data() {
-      return {
-        image: '',
-        images: [],
-        selected: '',
-        uploadId: '',
-        converted: false
+export default {
+  name: 'FileUpload',
+  data () {
+    return {
+      image: '',
+      images: [],
+      selected: '',
+      uploadId: '',
+      converted: false
+    }
+  },
+  methods: {
+    async onFileChange (e) {
+      let vm = this
+      const files = e.target.files || e.dataTransfer.files
+      if (!files.length) {
+        return
+      }
+      await this.callCreateImage(files)
+      vm.ready = true
+    },
+    async callCreateImage (files) {
+      for (let i = 0; i < files.length; i++) {
+        await this.createImage(files[i])
       }
     },
-    methods: {
-      async onFileChange(e) {
-        let vm = this;
-        const files = e.target.files || e.dataTransfer.files;
-        if (!files.length)
-          return;
-        await this.callCreateImage(files);
-        vm.ready = true;
-      },
-      async callCreateImage(files) {
-        for (let i = 0; i < files.length; i++) {
-          await this.createImage(files[i]);
-        }
-      },
-      async createImage(file) {
-        const image = new Image();
-        const reader = new FileReader();
-        let vm = this;
+    async createImage (file) {
+      const reader = new FileReader()
+      let vm = this
+      reader.onload = (e) => {
+        vm.image = e.target.result
+        vm.images.push(e.target.result)
+      }
+      return new Promise(function (resolve, reject) {
+        reader.readAsDataURL(file)
+        return resolve()
+      })
+    },
+    removeImage: function (e) {
+      this.image = ''
+    },
+    postImage: async function (e) {
+      let vm = this
+      const res = await axios.post(backendURL + 'data/upload', {
+        contentType: vm.selected,
+        images: vm.images
+      })
+      vm.uploadId = res.data.upload_id
+    },
+    onFileFormatChange (e) {
+      console.log(e)
+    },
+    convertImages: async function (e) {
+      let vm = this
+      await axios.post(backendURL + 'convert/pdf', {
+        contentType: vm.selected,
+        uploadId: vm.uploadId
+      })
 
-        reader.onload = (e) => {
-          vm.image = e.target.result;
-          vm.images.push(e.target.result);
-        };
-        return new Promise(function (resolve, reject) {
-          reader.readAsDataURL(file);
-          return resolve();
-        });
-      },
-      removeImage: function (e) {
-        this.image = '';
-      },
-      postImage: async function (e) {
-        let vm = this;
-        const res = await axios.post(backendURL + 'data/upload', {
-          contentType: vm.selected,
-          images: vm.images
-        });
-        vm.uploadId = res.data.upload_id;
-      },
-      onFileFormatChange(e) {
-        console.log(e)
-      },
-      convertImages: async function (e) {
-        let vm = this;
-        await axios.post(backendURL + 'convert/pdf', {
-          contentType: vm.selected,
-          uploadId: vm.uploadId
-        });
-
-        let statusCode = 404;
-        while (statusCode === 200) {
-          const res = await axios.post(backendURL + 'convert/pdf/download', {
-            uploadId: vm.uploadId
-          });
-          statusCode = res.status;
-        }
-        vm.converted = true;
-      },
-      downloadPDF: async function (e) {
-        let vm = this;
+      let statusCode = 404
+      while (statusCode === 200) {
         const res = await axios.post(backendURL + 'convert/pdf/download', {
           uploadId: vm.uploadId
-        }, {responseType: 'blob'});
-        let blob = new Blob([res.data], { type: 'application/pdf' } );
-        let link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = 'result.pdf';
-        link.click();
+        })
+        statusCode = res.status
       }
+      vm.converted = true
+    },
+    downloadPDF: async function (e) {
+      let vm = this
+      const res = await axios.post(backendURL + 'convert/pdf/download', {
+        uploadId: vm.uploadId
+      }, {responseType: 'blob'})
+      let blob = new Blob([res.data], { type: 'application/pdf' })
+      let link = document.createElement('a')
+      link.href = window.URL.createObjectURL(blob)
+      link.download = 'result.pdf'
+      link.click()
     }
   }
+}
 </script>
 
 <style scoped>
