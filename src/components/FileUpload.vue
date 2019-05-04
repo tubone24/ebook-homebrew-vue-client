@@ -11,27 +11,27 @@
     </div>
     <div v-if="!image" id="select-not-yet-image">
       <h2>Select images</h2>
-      <input type="file" @change="onFileChange" multiple="multiple" accept="image/*">
+      <input id="file-choice" type="file" @change="onFileChange" multiple="multiple" accept="image/*">
     </div>
     <div v-else id="selected-images">
       <img :src="image"/>
-      <button class="btn btn-danger" @click="removeImage">Remove images</button>
+      <button id="remove-image" class="btn btn-danger" @click="removeImage">Remove images</button>
       <div v-if="selected && images">
-        <button class="btn btn-primary" @click="postImage">Post images</button>
+        <button id="post-image" class="btn btn-primary" @click="postImage">Post images</button>
       </div>
       <div v-if="uploadId">
-        <span>UploadId: {{ uploadId }}</span>
+        <span id="upload-id">UploadId: {{ uploadId }}</span>
       </div>
       <div v-if="uploadId">
         <div class="row">
           <div class="col-sm-6">
-            <button class="btn btn-info" @click="convertImages">Convert images</button>
+            <button id="convert-images" class="btn btn-info" @click="convertImages">Convert images</button>
           </div>
           <div v-if="converted" class="col-sm-6">
-            <button class="btn btn-success" @click="downloadPDF">Download PDF</button>
+            <button id="download-pdf-200" class="btn btn-success" @click="downloadPDF">Download PDF</button>
           </div>
           <div v-else class="col-sm-6">
-            <button class="btn btn-warning" @click="downloadPDF">Download PDF</button>
+            <button id="download-pdf-404" class="btn btn-warning" @click="downloadPDF">Download PDF</button>
           </div>
         </div>
       </div>
