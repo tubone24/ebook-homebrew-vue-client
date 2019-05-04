@@ -2,9 +2,13 @@
 
 > Make pdf file which you use e-books by take in some image files such as jpeg, png and gif.
 
+[![CircleCI](https://circleci.com/gh/tubone24/ebook-homebrew-vue-client.svg?style=svg)](https://circleci.com/gh/tubone24/ebook-homebrew-vue-client)
+[![MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://heroku.com/deploy)
+[![MIT](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 ## Build Setup
 
-``` bash
+```
 # install dependencies
 npm install
 
@@ -16,6 +20,15 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+
+# Run Production Server using expless
+npm start
+```
+
+## Tests&Lint
+```
+# run eslint
+npm run lint
 
 # run unit tests
 npm run unit
@@ -35,6 +48,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 Push the button below.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+## CI
+
+Using [CircleCI](https://circleci.com/gh/tubone24/ebook-homebrew-vue-client) run Test.
 
 ## DEMOS
 

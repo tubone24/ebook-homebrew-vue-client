@@ -26,6 +26,9 @@ jobs:
       - run:
           name: e2e Test
           command: npm run e2e
+      - run:
+          name: ESLint
+          command: npm run lint
       - save_cache:
           key: projectname-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
