@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: circleci/node:jessie-browsers
+      - image: karthikiyengar/node-nightwatch:0.0.2
 
     steps:
       - checkout
