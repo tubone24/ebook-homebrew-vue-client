@@ -3,8 +3,9 @@
 > Make pdf file which you use e-books by take in some image files such as jpeg, png and gif.
 
 [![CircleCI](https://circleci.com/gh/tubone24/ebook-homebrew-vue-client.svg?style=svg)](https://circleci.com/gh/tubone24/ebook-homebrew-vue-client)
-[![MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://heroku.com/deploy)
+[![MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/tubone24/ebook-homebrew-vue-client/blob/master/LICENSE)
 [![MIT](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![codecov](https://codecov.io/gh/tubone24/ebook-homebrew-vue-client/branch/master/graph/badge.svg)](https://codecov.io/gh/tubone24/ebook-homebrew-vue-client)
 
 ## Build Setup
 
