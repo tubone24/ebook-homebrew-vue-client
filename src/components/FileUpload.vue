@@ -58,13 +58,11 @@ export default {
   },
   methods: {
     async onFileChange (e) {
-      let vm = this
       const files = e.target.files || e.dataTransfer.files
       if (!files.length) {
         return
       }
       await this.callCreateImage(files)
-      vm.ready = true
     },
     async callCreateImage (files) {
       for (let i = 0; i < files.length; i++) {
