@@ -29,6 +29,9 @@ jobs:
       - run:
           name: ESLint
           command: npm run lint
+      - run:
+          name: codecov
+          command: npm run codecov
       - save_cache:
           key: projectname-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
