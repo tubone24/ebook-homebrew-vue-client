@@ -11,7 +11,7 @@ engines:
       languages:
         - javascript
       extensions:
-        - .js
+        - .jsi
         - .vue
 ratings:
   paths:
