@@ -1,7 +1,7 @@
 <template>
   <div id="FileUpload">
     <div>
-      <select id="format-select" v-model="selected" @change="onFileFormatChange">
+      <select id="format-select" v-model="selected">
         <option disabled value="">Please select one</option>
         <option value="image/png">image/png</option>
         <option value="image/jpeg">image/jpeg</option>
@@ -92,9 +92,6 @@ export default {
       })
       vm.uploadId = res.data.upload_id
     },
-    onFileFormatChange (e) {
-      console.log(e)
-    },
     convertImages: async function (e) {
       let vm = this
       await axios.post(backendURL + 'convert/pdf', {
@@ -103,7 +100,7 @@ export default {
       })
 
       let statusCode = 404
-      while (statusCode === 200) {
+      while (statusCode === 404) {
         const res = await axios.post(backendURL + 'convert/pdf/download', {
           uploadId: vm.uploadId
         })

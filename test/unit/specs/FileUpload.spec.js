@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import FileUpload from '@/components/FileUpload'
+import axios from 'axios'
 
-const path = require('path')
-const file = path.resolve(__dirname, '../files/test_001.png')
 jest.mock('axios')
 
 describe('FileUpload.vue', () => {
@@ -36,5 +35,23 @@ describe('FileUpload.vue', () => {
     vm.image = 'test'
     vm.removeImage()
     expect(vm.image).toBe('')
+  })
+  it('postImage', async () => {
+    const Constructor = Vue.extend(FileUpload)
+    const vm = new Constructor().$mount()
+    const resp = {'data': {'upload_id': 'testId'}}
+    axios.post.mockResolvedValue(resp)
+    await vm.postImage('test')
+    expect(vm.uploadId).toBe('testId')
+  })
+  it('convertImages', async () => {
+    const Constructor = Vue.extend(FileUpload)
+    const vm = new Constructor().$mount()
+    const resp200 = {'status': 200}
+    const resp404 = {'status': 404}
+    expect(vm.converted).toBe(false)
+    axios.post.mockResolvedValueOnce(resp404).mockResolvedValueOnce(resp200)
+    await vm.convertImages('test')
+    expect(vm.converted).toBe(true)
   })
 })
