@@ -6,6 +6,9 @@
 [![MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/tubone24/ebook-homebrew-vue-client/blob/master/LICENSE)
 [![MIT](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![codecov](https://codecov.io/gh/tubone24/ebook-homebrew-vue-client/branch/master/graph/badge.svg)](https://codecov.io/gh/tubone24/ebook-homebrew-vue-client)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ebb8ffa066568defd812/maintainability)](https://codeclimate.com/github/tubone24/ebook-homebrew-vue-client/maintainability)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/tubone24/ebook-homebrew-vue-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/tubone24/ebook-homebrew-vue-client/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/tubone24/ebook-homebrew-vue-client.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/tubone24/ebook-homebrew-vue-client/context:javascript)
 
 ## Build Setup
 
