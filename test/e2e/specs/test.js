@@ -24,6 +24,7 @@ module.exports = {
       .assert.containsText('h2', 'Select images')
       .assert.elementCount('img', 1)
       .setValue('#file-choice', file)
+      .pause(1000)
       .assert.elementCount('img', 2)
       .click('#remove-image')
       .assert.elementCount('img', 1)

@@ -100,7 +100,7 @@ export default {
       })
 
       let statusCode = 404
-      while (statusCode === 404) {
+      while (statusCode === 200) {
         const res = await axios.post(backendURL + 'convert/pdf/download', {
           uploadId: vm.uploadId
         })
