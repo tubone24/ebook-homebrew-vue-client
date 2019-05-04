@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: karthikiyengar/node-nightwatch:0.0.2
+      - image: lts-browsers
 
     steps:
       - checkout
