@@ -32,6 +32,9 @@ jobs:
       - run:
           name: codecov
           command: npm run codecov
+      - run:
+          name: post artifacts
+          command: mv test/e2e/reports $CIRCLE_ARTIFACTS
       - save_cache:
           key: projectname-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
