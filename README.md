@@ -62,3 +62,5 @@ Using [CircleCI](https://circleci.com/gh/tubone24/ebook-homebrew-vue-client) run
 Using Vue.js, Call ebook-homebrew's REST API DEMO App, deploy to Heroku.
 
 [https://ebook-homebrew-vue-client.herokuapp.com/](https://ebook-homebrew-vue-client.herokuapp.com/)
+
+![Android](https://github.com/tubone24/ebook-homebrew-vue-client/raw/master/docs/images/vue.gif)
