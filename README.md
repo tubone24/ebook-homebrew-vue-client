@@ -1,5 +1,7 @@
 # ebook-homebrew-vue-client
 
+**!!! Deprecated !!!** ebook-homebrew-vue-client is deprecated instead of [ebook-homebrew-vue-typescript-client](https://github.com/tubone24/ebook-homebrew-vue-typescript-client)
+
 > Make pdf file which you use e-books by take in some image files such as jpeg, png and gif.
 
 [![CircleCI](https://circleci.com/gh/tubone24/ebook-homebrew-vue-client.svg?style=svg)](https://circleci.com/gh/tubone24/ebook-homebrew-vue-client)
@@ -61,6 +63,6 @@ Using [CircleCI](https://circleci.com/gh/tubone24/ebook-homebrew-vue-client) run
 
 Using Vue.js, Call ebook-homebrew's REST API DEMO App, deploy to Heroku.
 
-[https://ebook-homebrew-vue-client.herokuapp.com/](https://ebook-homebrew-vue-client.herokuapp.com/)
+~https://ebook-homebrew-vue-client.herokuapp.com/~
 
 ![Android](https://github.com/tubone24/ebook-homebrew-vue-client/raw/master/docs/images/vue.gif)
